@@ -1,5 +1,5 @@
 import os
-from PIL import Image
+from PIL import Image, ImageOps
 from roboflow import Roboflow
 import shutil
 
@@ -52,6 +52,7 @@ def useMask():
       background = background.resize((960, 960))
       try:
         auto = Image.open("input/" + patente + "/" + photo).convert("RGBA")
+        auto = ImageOps.exif_transpose(auto)
       except:
         print("Error al abrir " + patente + "/" + photo + ". Archivo no es una imagen o está corrupta\n")
         continue
