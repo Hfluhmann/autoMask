@@ -3,9 +3,12 @@ from PIL import Image, ImageOps
 from roboflow import Roboflow
 import shutil
 
+textFile = open("Key.txt", "r")
+Key = textFile.readline().strip()
+textFile.close()
 
 def detectCar(photo):
-  rf = Roboflow(api_key="uVh1ZaN4grG0vlIcT9iX")
+  rf = Roboflow(api_key=Key)
   project = rf.workspace().project("collectiondata-final")
   model = project.version(1).model
   try:

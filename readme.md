@@ -6,12 +6,13 @@
 pip install pillow
 ```
 ```sh
-pip install roboflow - -user
+pip install roboflow --user
 ```
 
 ## Funcionamiento:
 - Tener una carpeta "input" y una carpeta "output".
 - Dentro de la carpeta "input" colocar las carpetas con las fotos a procesas ej:(input/GKTK64/foto1.jpg).
+- En la primera linea del archivo "Key.txt" poner la api-key de roboflow.
 - Los resultados se entregarán en carpetas en "output".
 - Si se ejecuta el programa con archivos en la carpeta "output" serán eliminados.
 - Durante el proceso se creará una carpeta llamada "process". NO editar ni eliminar, el programa la eliminará automaticamente al finalizar.
