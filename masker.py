@@ -70,10 +70,12 @@ def useMask():
       if xMargin > yMargin:
         Image.Image.paste(background, car, (0, 960-car.size[1]))
         Image.Image.paste(background, mask, mask=mask)
-      else:
-        Image.Image.paste(car, mask, (0, car.size[1]-960), mask)
+        background = background.crop((0, 960-car.size[1], 960, 960))
 
-      background = background.crop((0, 960-car.size[1], 960, 960))
+      else:
+        background= background.resize((960, int((car.size[1]/car.size[0])*960)))
+        Image.Image.paste(background, car, (0, 0))
+        Image.Image.paste(background, mask, (0, car.size[1]-960), mask)
       background.save('output/' + patente + "/" + photo)
       print("\nCompletado", photo, "\n")
       i+=1
