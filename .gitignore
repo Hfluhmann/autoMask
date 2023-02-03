@@ -1,4 +1,5 @@
-input
-output
+input/*
+output/*
+ready/*
 process
 autoMaskApp

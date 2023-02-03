@@ -82,7 +82,12 @@ def useMask():
     for file in os.listdir("process"):
       os.remove("process/" + file)
     print("Completado", patente, "\n")
-
+    if not (os.path.exists('ready/' + patente)):
+        os.mkdir('ready/' + patente)
+    for photo in os.listdir("input/" + patente):
+      shutil.move('input/' + patente + "/" + photo, 'ready/' + patente + "/" + photo)
+  for patente in os.listdir("input"):
+    shutil.rmtree("input/" + patente)
 
 
 useMask()
